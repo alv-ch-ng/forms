@@ -55,6 +55,12 @@
                       'lib/angular-translate-storage-local/angular-translate-storage-local.js',
                       'lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
                       'lib/ng-lodash/build/ng-lodash.js',
+                      'lib/bootstrap-select/dist/js/bootstrap-select.min.js',
+                      'lib/mailcheck/src/mailcheck.min.js',
+                      'lib/angular-ui-bootstrap/src/typeahead/typeahead.js',
+                      'lib/angular-ui-bootstrap/src/tooltip/tooltip.js',
+                      'lib/angular-ui-bootstrap/src/position/position.js',
+                      'lib/angular-ui-bootstrap/src/bindHtml/bindHtml.js',
                       'lib/alv-ch-ng.core/dist/alv-ch-ng.core.js',
                       'lib/alv-ch-ng.core/dist/alv-ch-ng.core.templates.js'
                     ]
@@ -168,6 +174,12 @@
                             'lib/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
                             'lib/angular-translate-storage-local/angular-translate-storage-local.js',
                             'lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+                            'lib/bootstrap-select/dist/js/bootstrap-select.min.js',
+                            'lib/mailcheck/src/mailcheck.min.js',
+                            'lib/angular-ui-bootstrap/src/typeahead/typeahead.js',
+                            'lib/angular-ui-bootstrap/src/tooltip/tooltip.js',
+                            'lib/angular-ui-bootstrap/src/position/position.js',
+                            'lib/angular-ui-bootstrap/src/bindHtml/bindHtml.js',
                             'lib/ng-lodash/build/ng-lodash.js',
                             'lib/alv-ch-ng.core/dist/alv-ch-ng.core.js',
                             'node_modules/grunt-contrib-jasmine/vendor/jasmine-2.0.0/jasmine.js'
