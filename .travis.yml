@@ -4,5 +4,9 @@ node_js:
 install: npm install
 before_install: npm install -g grunt-cli
 before_script: bower install
+addons:
+  code_climate:
+    repo_token:
+      secure: "e1KWAguBHcuz95fZgPQQ0OdqHlp4Z0bE2PKph5kBgSf8umoN3V7hPuhYkjVxIa6aSltfeoK+cRIHykb6vdpPe7sej+CuSTYlveMIarrR06ugr4fISW9mZ4/wcbhuOcc8eGjP0a3DpQG6BdsM/9Pi3I4bar4lbpFkzgSM9idZp2k="
 after_script:
   - cat build/coverage/reports/lcov/lcov.info | codeclimate
