@@ -43,6 +43,8 @@
                     'src/example/lib.min.js': [
                       'lib/jquery/dist/jquery.js',
                       'lib/bootstrap/dist/js/bootstrap.js',
+                      'lib/bootstrap-select/dist/js/**/*.js',
+                      'lib/bootstrap-datepicker/js/**/*.js',
                       'lib/angular/angular.js',
                       'lib/angular-aria/angular-aria.js',
                       'lib/angular-cookies/angular-cookies.js',
@@ -162,6 +164,8 @@
                             'lib/jquery/dist/jquery.js',
                             'lib/jasmine-jquery/lib/jasmine-jquery.js',
                             'lib/bootstrap/dist/js/bootstrap.js',
+                            'lib/bootstrap-select/dist/js/**/*.js',
+                            'lib/bootstrap-datepicker/js/**/*.js',
                             'lib/angular/angular.js',
                             'lib/angular-mocks/angular-mocks.js',
                             'lib/angular-aria/angular-aria.js',

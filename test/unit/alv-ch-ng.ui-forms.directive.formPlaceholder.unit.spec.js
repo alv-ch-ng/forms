@@ -29,8 +29,6 @@ describe("formPlaceholderLabel directive", function() {
                     $compile(elem)(scope);
                     scope.$digest();
 
-                    console.log(elem.children().html());
-
                     expect(elem.children().hasClass('form-group')).toBeTruthy();
                     expect(elem.children().hasClass('placeholder-label')).toBeTruthy();
                     expect(elem.find('input').hasClass("active")).toBeFalsy();

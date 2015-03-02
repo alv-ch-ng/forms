@@ -29,6 +29,21 @@ describe("formInset directive", function() {
                 });
             }
         );
+
+        it('renders the html element element as required on the right.',
+            function() {
+                inject(function ($compile, $rootScope) {
+                    var scope = $rootScope.$new();
+                    var elem = angular.element('<div><input form-inset="map-marker" id="inset1" ng-model="insetTest" placeholder="insetTest" form-inset-align="right" /></div>');
+                    $compile(elem)(scope);
+                    expect(elem.children('.input-group')).toBeTruthy();
+                    expect(elem.children('.input-group').children("span.input-group-addon.input-group-inset")).toBeTruthy();
+                    expect(elem.find('.inset-align-right')).toBeTruthy();
+                    expect(elem.children('.input-group').children("span.input-group-addon.input-group-inset").children("span.glyphicon.glyphicon-map-marker")).toBeTruthy();
+                });
+            }
+        );
+
         it('renders the html element with a button as required.',
             function() {
                 inject(function ($compile, $rootScope) {
