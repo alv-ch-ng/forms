@@ -1,4 +1,4 @@
-/* alv-ch-ng.forms - 0.2.0 - 2015-03-06 - Copyright (c) 2015 Informatik der Arbeitslosenversicherung; */
+/* alv-ch-ng.forms - 0.2.0 - 2015-03-11 - Copyright (c) 2015 Informatik der Arbeitslosenversicherung; */
 ;(function () {
     'use strict';
 
@@ -221,6 +221,8 @@
 
                         return element.on('keyup blur', function() {
                             return element.mailcheck({
+                                domains: ['alice.it','ymail.com','aol.com','besonet.ch','bluemail.ch','bluewin.ch','freenet.ch','freenet.de','gmail.com','googlemail.com','gmx.ch','gmx.net','hispeed.ch','hotmail.ch','hotmail.com','sunrise.ch','me.com','msn.ch','outlook.com','seco.admin.ch','yahoo.de','yahoo.com'],
+                                topLevelDomains: ['ch','com','net','de','it','fr','at','li','es'],
                                 suggested: function(ele, suggestion) {
                                     return controller.suggest(suggestion);
                                 },
