@@ -17,7 +17,7 @@
             Individual form controls automatically receive some global styling by adding <code>form-input</code> attribute. All textual <code>input</code>,<code>textarea</code> and <code>select</code> elements are set to <code>width: 100%;</code> by default.
         </p>
         <p>
-            Labels are added by the attribute <code>form-label</code> with the representing <strong>i18n-message-key</strong>. The alignment of the label is by default above the input field. By adding <code>.form-inline</code> or <code>.form-horizontal</code> to the <code>form</code> element, the position of the element is set automatically to the desired alignment.
+            Labels are added by the attribute <code>form-label</code> with the representing <strong>i18n-message-key</strong>. If you don't use i18n/angular-translate, simply add <code>form-label-translate="false"</code> as parameter. The alignment of the label is by default above the input field. By adding <code>.form-inline</code> or <code>.form-horizontal</code> to the <code>form</code> element, the position of the element is set automatically to the desired alignment.
         </p>
 
         <h3>Example</h3>
@@ -26,8 +26,6 @@
     <input type="text" form-input form-label="testLabel" name="testInput" id="testInput" ng-model="form.testInput" />
 
     <textarea form-textarea form-label="testLabel" name="testTextarea" id="testTextarea" ng-model="form.testTextarea"></textarea>
-
-    <select form-input form-label="testLabel" name="testSelect" id="testSelect" ng-model="form.testSelect" ng-options="country.text for country in countries"></select>
 
     <input type="checkbox" form-label="testLabel" name="testCheckbox" id="testCheckbox" ng-model="form.testCheckbox"/>
 
@@ -44,8 +42,6 @@
 
     <textarea form-textarea form-label="testLabel" name="testTextarea" id="inline-testTextarea" ng-model="form.testTextarea"></textarea>
 
-    <select form-input form-label="testLabel" name="testSelect" id="inline-testSelect" ng-model="form.testSelect" ng-options="country.text for country in countries"></select>
-
     <input type="checkbox" form-label="testLabel" name="testCheckbox" id="inline-testCheckbox" ng-model="form.testCheckbox"/>
 
     <input type="radio" form-label="testLabel" name="testRadio" id="inline-testRadio_1" ng-model="form.testRadio"/>
@@ -61,14 +57,27 @@
 
     <textarea form-textarea form-label="testLabel" name="testTextarea" id="horizontal-testTextarea" ng-model="form.testTextarea"></textarea>
 
-    <select form-input form-label="testLabel" name="testSelect" id="horizontal-testSelect" ng-model="form.testSelect" ng-options="country.text for country in countries"></select>
-
     <input type="checkbox" form-label="testLabel" name="testCheckbox" id="horizontal-testCheckbox" ng-model="form.testCheckbox"/>
 
     <input type="radio" form-label="testLabel" name="testRadio" id="horizontal-testRadio_1" ng-model="form.testRadio"/>
 
     <input type="radio" form-label="testLabel" name="testRadio" id="horizontal-testRadio_2" ng-model="form.testRadio"/>
 </form>
+        </div>
+
+        <h3>Label without i18n/ngTranslate</h3>
+        <div highlight="this">
+            <form role="form" class="form-horizontal">
+                <input type="text" form-input form-label="No Translated Label" form-label-translate="false" name="testInput2" id="horizontal-testInput2" ng-model="form.testInput" />
+
+                <textarea form-textarea form-label="No Translated Label" form-label-translate="false" name="testTextarea" id="horizontal-testTextarea2" ng-model="form.testTextarea"></textarea>
+
+                <input type="checkbox" form-label="No Translated Label" form-label-translate="false" name="testCheckbox" id="horizontal-testCheckbox2" ng-model="form.testCheckbox"/>
+
+                <input type="radio" form-label="No Translated Label" form-label-translate="false" name="testRadio" id="horizontal-testRadio_12" ng-model="form.testRadio"/>
+
+                <input type="radio" form-label="No Translated Label" form-label-translate="false" name="testRadio" id="horizontal-testRadio_22" ng-model="form.testRadio"/>
+            </form>
         </div>
 
         <h2 class="toc">Password</h2>
@@ -120,6 +129,8 @@
         <div highlight="this">
 <form role="form">
     <input type="text" form-input form-helptext="testHelptext" form-label="testLabel" name="testHelptext" id="testHelptext" ng-model="form.testHelptext" />
+
+    <input type="text" form-input form-helptext="Kein Translate Helptext" form-helptext-translate="false" form-label="testLabel" name="testHelptextNoTranslate" id="testHelptextNoTranslate" ng-model="form.testHelptextNoTranslate" />
 </form>
         </div>
 

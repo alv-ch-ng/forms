@@ -238,6 +238,7 @@
         };
     }]);
 
+
     module.directive('formLabel', ['$compile', 'UiRenderService', function ($compile, UiRenderService) {
         return {
             restrict: 'A',
@@ -254,12 +255,17 @@
                 }
 
                 // label/helptext i18n Text and compile
-                var labelText = angular.element('<span translate="' + attrs.formLabel + '"></span>');
-                $compile(labelText)(scope);
+                var labelTranslate=attrs.formLabelTranslate || true;
+                var labelText=attrs.formLabel;
+                if (labelTranslate) {
+                    labelText = angular.element('<span translate="' + attrs.formLabel + '"></span>');
+                    $compile(labelText)(scope);
+                }
 
+                var helpTextTranslate=attrs.formHelpextTranslate || true;
                 var helpText;
                 if (attrs.formHelptext !== undefined) {
-                    helpText = UiRenderService.getHelptext(attrs.formHelptext);
+                    helpText = UiRenderService.getHelptext(attrs.formHelptext,helpTextTranslate);
                     $compile(helpText)(scope);
                 }
 
@@ -619,5 +625,23 @@
         };
     }]);
 
-
+    module.directive('formAlert', ['$compile',function($compile){
+        return {
+            priority: 5,
+            restrict: 'A',
+            link: function(scope, element, attrs){
+                var trigger = attrs.formAlertTrigger || true;
+                var severity = attrs.alertSeverity || "info";
+                var dismissable = attrs.alertDismissable || false;
+                var dismissableText = attrs.alertDismissableText || false;
+                var alert=angular.element('<alert ng-show="'+trigger+'" alert-severity="'+severity+'" alert-dismissable="'+dismissable+'"><span translate="'+attrs.formAlert+'"></span></alert>');
+                if (dismissableText){
+                    alert.attr('alert-dismissable-text',dismissableText);
+                }
+                alert.addClass('form-alert');
+                $compile(alert)(scope);
+                element.after(alert);
+            }
+        };
+    }]);
 }());
