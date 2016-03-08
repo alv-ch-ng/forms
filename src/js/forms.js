@@ -244,6 +244,8 @@
             restrict: 'A',
             priority: 10,
             link: function (scope, element, attrs) {
+                var labelTranslate=true;
+                var helpTextTranslate=true;
                 var inlineForm = element.parent().hasClass("form-inline");
                 var horizontalForm = element.parent().hasClass("form-horizontal");
                 var fg = angular.element('<div class="form-group"></div>');
@@ -255,14 +257,18 @@
                 }
 
                 // label/helptext i18n Text and compile
-                var labelTranslate=attrs.formLabelTranslate || true;
-                var labelText=attrs.formLabel;
+                if (attrs.formLabelTranslate === "false") {
+                    labelTranslate=false;
+                }
+                var labelText=angular.element('<span>'+attrs.formLabel + '</span>');
                 if (labelTranslate) {
                     labelText = angular.element('<span translate="' + attrs.formLabel + '"></span>');
                     $compile(labelText)(scope);
                 }
 
-                var helpTextTranslate=attrs.formHelpextTranslate || true;
+                if (attrs.formHelpextTranslate==='false'){
+                    helpTextTranslate=false;
+                }
                 var helpText;
                 if (attrs.formHelptext !== undefined) {
                     helpText = UiRenderService.getHelptext(attrs.formHelptext,helpTextTranslate);

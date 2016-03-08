@@ -38,7 +38,8 @@
       /** -- Routings -- **/
       var routes = [
         {path: '/', redirectTo: '/forms'},
-        {path: '/forms', templateUrl: '/example/pages/forms.html', controller: 'ExampleCtrl'}
+        {path: '/forms', templateUrl: '/example/pages/forms.html', controller: 'ExampleCtrl'},
+        {path: '/radio', templateUrl: '/example/pages/radio.html', controller: 'ExampleCtrl'}
       ];
 
       for (var i = 0; i < routes.length; i++) {

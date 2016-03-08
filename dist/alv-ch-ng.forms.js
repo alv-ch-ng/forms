@@ -1,4 +1,4 @@
-/* alv-ch-ng.forms - 0.2.0 - 2015-03-11 - Copyright (c) 2015 Informatik der Arbeitslosenversicherung; */
+/* alv-ch-ng.forms - 0.2.1 - 2016-03-08 - Copyright (c) 2016 Informatik der Arbeitslosenversicherung; */
 ;(function () {
     'use strict';
 
@@ -239,11 +239,14 @@
         };
     }]);
 
+
     module.directive('formLabel', ['$compile', 'UiRenderService', function ($compile, UiRenderService) {
         return {
             restrict: 'A',
             priority: 10,
             link: function (scope, element, attrs) {
+                var labelTranslate=true;
+                var helpTextTranslate=true;
                 var inlineForm = element.parent().hasClass("form-inline");
                 var horizontalForm = element.parent().hasClass("form-horizontal");
                 var fg = angular.element('<div class="form-group"></div>');
@@ -255,12 +258,21 @@
                 }
 
                 // label/helptext i18n Text and compile
-                var labelText = angular.element('<span translate="' + attrs.formLabel + '"></span>');
-                $compile(labelText)(scope);
+                if (attrs.formLabelTranslate === "false") {
+                    labelTranslate=false;
+                }
+                var labelText=angular.element('<span>'+attrs.formLabel + '</span>');
+                if (labelTranslate) {
+                    labelText = angular.element('<span translate="' + attrs.formLabel + '"></span>');
+                    $compile(labelText)(scope);
+                }
 
+                if (attrs.formHelpextTranslate==='false'){
+                    helpTextTranslate=false;
+                }
                 var helpText;
                 if (attrs.formHelptext !== undefined) {
-                    helpText = UiRenderService.getHelptext(attrs.formHelptext);
+                    helpText = UiRenderService.getHelptext(attrs.formHelptext,helpTextTranslate);
                     $compile(helpText)(scope);
                 }
 
@@ -620,7 +632,25 @@
         };
     }]);
 
-
+    module.directive('formAlert', ['$compile',function($compile){
+        return {
+            priority: 5,
+            restrict: 'A',
+            link: function(scope, element, attrs){
+                var trigger = attrs.formAlertTrigger || true;
+                var severity = attrs.alertSeverity || "info";
+                var dismissable = attrs.alertDismissable || false;
+                var dismissableText = attrs.alertDismissableText || false;
+                var alert=angular.element('<alert ng-show="'+trigger+'" alert-severity="'+severity+'" alert-dismissable="'+dismissable+'"><span translate="'+attrs.formAlert+'"></span></alert>');
+                if (dismissableText){
+                    alert.attr('alert-dismissable-text',dismissableText);
+                }
+                alert.addClass('form-alert');
+                $compile(alert)(scope);
+                element.after(alert);
+            }
+        };
+    }]);
 }());
 ;angular.module('alv-ch-ng.forms').run(['$templateCache', function($templateCache) {
   'use strict';
